@@ -1,13 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Injectable, Param, Post, Put } from "@nestjs/common";
 import { BlogService } from "./blog.service";
 
 @Controller("blog")
+@Injectable()
 export class BlogController {
-    blogService: BlogService;
-
-    constructor() {
-        this.blogService = new BlogService();
-    }
+    constructor(private blogService: BlogService) { }
 
     @Get()
     getAllPosts() {

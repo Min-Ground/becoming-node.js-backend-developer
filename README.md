@@ -45,3 +45,5 @@ class MovieSeries extends Series {}
 ## 블로그 API 만들기
 
 - 타입스크립트에서는 데이터만 가지고 있는 타입을 선언할 때, 클래스보다는 인터페이스를 사용한다. (DTO)
+- `@Injectable`을 붙이면 프로바이더(Provider)가 된다. 의존성 주입을 받을 수 있도록 한다.
+    - AppModule의 모듈 설정에 Provider 설정을 추가한다.
