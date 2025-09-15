@@ -1,41 +1,32 @@
 import { PostDto } from "./blog.model.PostDto";
+import { BlogFileRepository, BlogRepository } from "./blog.repository";
 
 export class BlogService {
-    posts: PostDto[] = [];
+    blogRepository: BlogRepository;
     
-    getAllPosts() {
-        return this.posts;
+    constructor() {
+        this.blogRepository = new BlogFileRepository();
+    }
+
+    posts = [];
+
+    async getAllPosts() {
+        return await this.blogRepository.getAllPost();
     }
 
     createPost(postDto: PostDto) {
-        const id = this.posts.length + 1;
-        this.posts.push({
-            id: id.toString(),
-            ...postDto,
-            createdDt: new Date()
-        });
+        this.blogRepository.createPost(postDto);
     }
 
-    getPost(id: string) {
-        const post = this.posts.find((post) => {
-            return post.id === id;
-        });
-        console.log(post);
-        return post;
+    async getPost(id): Promise<PostDto> {
+        return await this.blogRepository.getPost(id);
     }
 
-    delete(id: string) {
-        const filteredPosts = this.posts.filter((post) => post.id !== id);
-        this.posts = [...filteredPosts]
+    delete(id) {
+        this.blogRepository.deletePost(id);
     }
 
-    updatePost(id: string, postDto: PostDto) {
-        let updateIndex = this.posts.findIndex((post) => post.id === id);
-        const updatePost = { 
-            id: id.toString(), 
-            ...postDto, 
-            updatedDt: new Date() };
-        this.posts[updateIndex] = updatePost;
-        return updatePost;
+    updatePost(id, postDto: PostDto) {
+        this.blogRepository.updatePost(id, postDto);
     }
 }

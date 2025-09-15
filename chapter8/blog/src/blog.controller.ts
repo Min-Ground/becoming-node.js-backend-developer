@@ -23,9 +23,11 @@ export class BlogController {
     }
 
     @Get('/:id')
-    getPost(@Param('id') id: string) {
+    async getPost(@Param('id') id: string) {
         console.log('게시글 하나 가져오기');
-        return this.blogService.getPost(id);
+        const post = await this.blogService.getPost(id);
+        console.log(post);
+        return post;
     }
 
     @Delete('/:id')
@@ -36,7 +38,7 @@ export class BlogController {
     }
 
     @Put('/:id')
-    updatePost(@Param('id') id: string, @Body() postDto) { 
+    updatePost(@Param('id') id: string, @Body() postDto) {
         console.log('게시글 업데이트', id, postDto);
         return this.blogService.updatePost(id, postDto);
     }
