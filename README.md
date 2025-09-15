@@ -40,6 +40,8 @@ interface Series {}
 interface BookSeries extends Series {}
 class MovieSeries extends Series {}
 ```
+---
 
+## 블로그 API 만들기
 
-
+- 타입스크립트에서는 데이터만 가지고 있는 타입을 선언할 때, 클래스보다는 인터페이스를 사용한다. (DTO)
