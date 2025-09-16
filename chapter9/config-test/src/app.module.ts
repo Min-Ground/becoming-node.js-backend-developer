@@ -9,7 +9,8 @@ import config from './configs/config';
   imports: [ConfigModule.forRoot({
     isGlobal: true, // 전역 모듈 설정하기
     envFilePath: `${process.cwd()}/envs/${process.env.NODE_ENV}.env`, // env 경로 지정
-    load: [config] // 커스텀 파일 설정
+    load: [config], // 커스텀 파일 설정
+    cache: true // 캐시 적용
   }), WeatherModule],
   controllers: [AppController],
   providers: [AppService],
