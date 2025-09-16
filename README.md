@@ -51,4 +51,5 @@ class MovieSeries extends Series {}
 ## Chapter9. NestJS 환경변수 설정하기
 
 - NestJS에서 환경변수 설정은 ConfigModule에서 할 수 있으며, 설정된 환경변수를 다른 모듈에서 사용하려면 ConfigService를 주입받아 사용한다.
-- ConfigModule.forRoot() 주요 옵션 : isGlobal (전역) / cache (환경변수 캐시) / envFilePath (환경 변수 파일 경로) 
+- ConfigModule.forRoot() 주요 옵션 : isGlobal (전역) / cache (환경변수 캐시) / envFilePath (환경 변수 파일 경로)
+- package.json / scripts에 `NODE_ENV={환경명}`을 추가해 서버 기동 시 환경을 설정한다.
