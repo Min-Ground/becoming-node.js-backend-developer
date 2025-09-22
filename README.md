@@ -1,6 +1,15 @@
 # becoming-node.js-backend-developer
 Node.js 백엔드 개발자 되기
 
+## Chapter5. 자바스크립트에서 비동기 처리하기
+
+- 자바스크립트는 런타임(Node.js)에서 싱글 스레드로 동작한다. _ 이벤트 루프(Event Loop)
+    - `libuv` 에서 File I/O, DNS Operation 등의 작업은 스레드 풀을 사용하기 때문에 멀티 스레드를 활용한다.
+- 싱글 스레드로 동작하기 때문에 callback, promise, async/await을 사용해 비동기 처리를 할 수 있다.
+    - callback : 함수의 파라미터로 함수 전달, 가독성이 좋지 않음
+    - promise : 비동기 작업 완료 시, 결과 반환하는 객체 / 대기 -> 성공 / 실패
+    - async/await : Promise를 사용하는 비동기 작업을 동기적으로 처리하는 것처럼 코드 작성 할 수 있게 도와줌.
+
 ## Chapter8. NestJS 시작하기
 
 ### 특징
